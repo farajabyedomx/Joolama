@@ -1,1 +1,1 @@
-# JoolamaAPI
+# Joolama
