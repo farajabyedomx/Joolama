@@ -1,0 +1,1826 @@
+{
+    "name": "Faraja Payment Log & Processing",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 122041,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -498,
+                    "y": -14
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "farajapay"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "ResponseCode",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Response",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Ref",
+                        "type": "text"
+                    },
+                    {
+                        "name": "convID",
+                        "type": "text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "google-sheets:addRow",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 243937
+            },
+            "mapper": {
+                "mode": "select",
+                "values": {
+                    "0": "{{1.Ref}}",
+                    "1": "{{1.Response}}",
+                    "2": "{{1.ResponseCode}}",
+                    "3": "{{1.convID}}"
+                },
+                "sheetId": "Sheet1",
+                "spreadsheetId": "1f_VEpjDVheYieVzMFW1Hp_RgBJw3bk39-o1onvA5ZVo",
+                "includesHeaders": true,
+                "insertDataOption": "INSERT_ROWS",
+                "valueInputOption": "USER_ENTERED"
+            },
+            "metadata": {
+                "designer": {
+                    "x": -136,
+                    "y": -12
+                },
+                "restore": {
+                    "expect": {
+                        "mode": {
+                            "label": "Select spreadsheet and sheet"
+                        },
+                        "sheetId": {
+                            "label": "Sheet1"
+                        },
+                        "spreadsheetId": {
+                            "label": "Faraja Payment"
+                        },
+                        "includesHeaders": {
+                            "label": "Yes",
+                            "nested": [
+                                {
+                                    "name": "values",
+                                    "spec": [
+                                        {
+                                            "name": "0",
+                                            "type": "text",
+                                            "label": "Ref (A)"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "type": "text",
+                                            "label": "Response (B)"
+                                        },
+                                        {
+                                            "name": "2",
+                                            "type": "text",
+                                            "label": "Code (C)"
+                                        },
+                                        {
+                                            "name": "3",
+                                            "type": "text",
+                                            "label": "convID (D)"
+                                        },
+                                        {
+                                            "name": "4",
+                                            "type": "text",
+                                            "label": "(E)"
+                                        },
+                                        {
+                                            "name": "5",
+                                            "type": "text",
+                                            "label": "(F)"
+                                        },
+                                        {
+                                            "name": "6",
+                                            "type": "text",
+                                            "label": "(G)"
+                                        },
+                                        {
+                                            "name": "7",
+                                            "type": "text",
+                                            "label": "(H)"
+                                        },
+                                        {
+                                            "name": "8",
+                                            "type": "text",
+                                            "label": "(I)"
+                                        },
+                                        {
+                                            "name": "9",
+                                            "type": "text",
+                                            "label": "(J)"
+                                        },
+                                        {
+                                            "name": "10",
+                                            "type": "text",
+                                            "label": "(K)"
+                                        },
+                                        {
+                                            "name": "11",
+                                            "type": "text",
+                                            "label": "(L)"
+                                        },
+                                        {
+                                            "name": "12",
+                                            "type": "text",
+                                            "label": "(M)"
+                                        },
+                                        {
+                                            "name": "13",
+                                            "type": "text",
+                                            "label": "(N)"
+                                        },
+                                        {
+                                            "name": "14",
+                                            "type": "text",
+                                            "label": "(O)"
+                                        },
+                                        {
+                                            "name": "15",
+                                            "type": "text",
+                                            "label": "(P)"
+                                        },
+                                        {
+                                            "name": "16",
+                                            "type": "text",
+                                            "label": "(Q)"
+                                        },
+                                        {
+                                            "name": "17",
+                                            "type": "text",
+                                            "label": "(R)"
+                                        },
+                                        {
+                                            "name": "18",
+                                            "type": "text",
+                                            "label": "(S)"
+                                        },
+                                        {
+                                            "name": "19",
+                                            "type": "text",
+                                            "label": "(T)"
+                                        },
+                                        {
+                                            "name": "20",
+                                            "type": "text",
+                                            "label": "(U)"
+                                        },
+                                        {
+                                            "name": "21",
+                                            "type": "text",
+                                            "label": "(V)"
+                                        },
+                                        {
+                                            "name": "22",
+                                            "type": "text",
+                                            "label": "(W)"
+                                        },
+                                        {
+                                            "name": "23",
+                                            "type": "text",
+                                            "label": "(X)"
+                                        },
+                                        {
+                                            "name": "24",
+                                            "type": "text",
+                                            "label": "(Y)"
+                                        },
+                                        {
+                                            "name": "25",
+                                            "type": "text",
+                                            "label": "(Z)"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Values"
+                                }
+                            ]
+                        },
+                        "insertDataOption": {
+                            "mode": "chose",
+                            "label": "Insert rows"
+                        },
+                        "valueInputOption": {
+                            "mode": "chose",
+                            "label": "User entered"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "undefined",
+                                "connection": "undefined"
+                            },
+                            "label": "FP"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Mode",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "valueInputOption",
+                        "type": "select",
+                        "label": "Value input option",
+                        "validate": {
+                            "enum": [
+                                "USER_ENTERED",
+                                "RAW"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "insertDataOption",
+                        "type": "select",
+                        "label": "Insert data option",
+                        "validate": {
+                            "enum": [
+                                "INSERT_ROWS",
+                                "OVERWRITE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "select",
+                        "label": "Spreadsheet",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "values",
+                        "spec": [
+                            {
+                                "name": "0",
+                                "type": "text",
+                                "label": "Ref (A)"
+                            },
+                            {
+                                "name": "1",
+                                "type": "text",
+                                "label": "Response (B)"
+                            },
+                            {
+                                "name": "2",
+                                "type": "text",
+                                "label": "Code (C)"
+                            },
+                            {
+                                "name": "3",
+                                "type": "text",
+                                "label": "convID (D)"
+                            },
+                            {
+                                "name": "4",
+                                "type": "text",
+                                "label": "(E)"
+                            },
+                            {
+                                "name": "5",
+                                "type": "text",
+                                "label": "(F)"
+                            },
+                            {
+                                "name": "6",
+                                "type": "text",
+                                "label": "(G)"
+                            },
+                            {
+                                "name": "7",
+                                "type": "text",
+                                "label": "(H)"
+                            },
+                            {
+                                "name": "8",
+                                "type": "text",
+                                "label": "(I)"
+                            },
+                            {
+                                "name": "9",
+                                "type": "text",
+                                "label": "(J)"
+                            },
+                            {
+                                "name": "10",
+                                "type": "text",
+                                "label": "(K)"
+                            },
+                            {
+                                "name": "11",
+                                "type": "text",
+                                "label": "(L)"
+                            },
+                            {
+                                "name": "12",
+                                "type": "text",
+                                "label": "(M)"
+                            },
+                            {
+                                "name": "13",
+                                "type": "text",
+                                "label": "(N)"
+                            },
+                            {
+                                "name": "14",
+                                "type": "text",
+                                "label": "(O)"
+                            },
+                            {
+                                "name": "15",
+                                "type": "text",
+                                "label": "(P)"
+                            },
+                            {
+                                "name": "16",
+                                "type": "text",
+                                "label": "(Q)"
+                            },
+                            {
+                                "name": "17",
+                                "type": "text",
+                                "label": "(R)"
+                            },
+                            {
+                                "name": "18",
+                                "type": "text",
+                                "label": "(S)"
+                            },
+                            {
+                                "name": "19",
+                                "type": "text",
+                                "label": "(T)"
+                            },
+                            {
+                                "name": "20",
+                                "type": "text",
+                                "label": "(U)"
+                            },
+                            {
+                                "name": "21",
+                                "type": "text",
+                                "label": "(V)"
+                            },
+                            {
+                                "name": "22",
+                                "type": "text",
+                                "label": "(W)"
+                            },
+                            {
+                                "name": "23",
+                                "type": "text",
+                                "label": "(X)"
+                            },
+                            {
+                                "name": "24",
+                                "type": "text",
+                                "label": "(Y)"
+                            },
+                            {
+                                "name": "25",
+                                "type": "text",
+                                "label": "(Z)"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Values"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "woocommerce:CreateOrderNote",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 155100
+            },
+            "mapper": {
+                "note": "{{1.Response}}",
+                "orderId": "{{1.convID}}",
+                "customerNote": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 219,
+                    "y": -17
+                },
+                "restore": {
+                    "expect": {
+                        "customerNote": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "woocommerce2"
+                            },
+                            "label": "Joolama.co.ke"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:woocommerce2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "orderId",
+                        "type": "number",
+                        "label": "Order ID",
+                        "required": true
+                    },
+                    {
+                        "name": "note",
+                        "type": "text",
+                        "label": "Note",
+                        "required": true
+                    },
+                    {
+                        "name": "customerNote",
+                        "type": "boolean",
+                        "label": "Note will be shown to customers and they will be notified",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "woocommerce:GetOrder",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 155100
+            },
+            "mapper": {
+                "id": "{{1.convID}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 519,
+                    "y": -17
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "woocommerce2"
+                            },
+                            "label": "Joolama.co.ke"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:woocommerce2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "id",
+                        "type": "number",
+                        "label": "Order ID",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "filter": {
+                "name": "Successful payment?",
+                "conditions": []
+            },
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 870,
+                    "y": -14
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 6,
+                            "module": "woocommerce:UpdateOrder",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 155100
+                            },
+                            "filter": {
+                                "name": "Paid",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{1.ResponseCode}}",
+                                            "b": "200",
+                                            "o": "text:equal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "id": "{{5.id}}",
+                                "status": "processing",
+                                "billing": {
+                                    "city": "{{5.billing.city}}",
+                                    "email": "{{5.billing.email}}",
+                                    "phone": "{{5.billing.phone}}",
+                                    "state": "{{5.billing.state}}",
+                                    "company": "{{5.billing.company}}",
+                                    "country": "{{5.billing.country}}",
+                                    "address1": "{{5.billing.address1}}",
+                                    "address2": "{{5.billing.address2}}",
+                                    "lastName": "{{5.billing.lastName}}",
+                                    "postcode": "{{5.billing.postcode}}",
+                                    "firstName": "{{5.billing.firstName}}"
+                                },
+                                "setPaid": true,
+                                "currency": "KES",
+                                "feeLines": [],
+                                "metaData": [],
+                                "parentId": "{{5.parentId}}",
+                                "shipping": {
+                                    "city": "{{5.shipping.city}}",
+                                    "state": "{{5.shipping.state}}",
+                                    "company": "{{5.shipping.company}}",
+                                    "country": "{{5.shipping.country}}",
+                                    "address1": "{{5.shipping.address1}}",
+                                    "address2": "{{5.shipping.address2}}",
+                                    "lastName": "{{5.shipping.lastName}}",
+                                    "postcode": "{{5.shipping.postcode}}",
+                                    "firstName": "{{5.shipping.firstName}}"
+                                },
+                                "lineItems": [],
+                                "customerId": "{{5.customerId}}",
+                                "couponLines": [],
+                                "customerNote": "{{5.customerNote}}",
+                                "paymentMethod": "faraja",
+                                "shippingLines": [],
+                                "transactionId": "Ref ID : {{1.Ref}}",
+                                "paymentMethodTitle": "{{5.paymentMethod}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1274,
+                                    "y": -203
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "status": {
+                                            "mode": "chose",
+                                            "label": "Processing"
+                                        },
+                                        "setPaid": {
+                                            "mode": "chose"
+                                        },
+                                        "currency": {
+                                            "mode": "chose",
+                                            "label": "KES"
+                                        },
+                                        "feeLines": {
+                                            "mode": "chose"
+                                        },
+                                        "metaData": {
+                                            "mode": "chose"
+                                        },
+                                        "lineItems": {
+                                            "mode": "chose"
+                                        },
+                                        "couponLines": {
+                                            "mode": "chose"
+                                        },
+                                        "paymentMethod": {
+                                            "mode": "chose",
+                                            "label": "Faraja Credit"
+                                        },
+                                        "shippingLines": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "woocommerce2"
+                                            },
+                                            "label": "Joolama.co.ke"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:woocommerce2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "id",
+                                        "type": "number",
+                                        "label": "Order ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "parentId",
+                                        "type": "number",
+                                        "label": "Parent order ID"
+                                    },
+                                    {
+                                        "name": "status",
+                                        "type": "select",
+                                        "label": "Status",
+                                        "validate": {
+                                            "enum": [
+                                                "pending",
+                                                "processing",
+                                                "on-hold",
+                                                "completed",
+                                                "cancelled",
+                                                "refunded",
+                                                "failed"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "currency",
+                                        "type": "select",
+                                        "label": "Currency",
+                                        "validate": {
+                                            "enum": [
+                                                "AED",
+                                                "AFN",
+                                                "ALL",
+                                                "AMD",
+                                                "ANG",
+                                                "AOA",
+                                                "ARS",
+                                                "AUD",
+                                                "AWG",
+                                                "AZN",
+                                                "BAM",
+                                                "BBD",
+                                                "BDT",
+                                                "BGN",
+                                                "BHD",
+                                                "BIF",
+                                                "BMD",
+                                                "BND",
+                                                "BOB",
+                                                "BRL",
+                                                "BSD",
+                                                "BTC",
+                                                "BTN",
+                                                "BWP",
+                                                "BYR",
+                                                "BYN",
+                                                "BZD",
+                                                "CAD",
+                                                "CDF",
+                                                "CHF",
+                                                "CLP",
+                                                "CNY",
+                                                "COP",
+                                                "CRC",
+                                                "CUC",
+                                                "CUP",
+                                                "CVE",
+                                                "CZK",
+                                                "DJF",
+                                                "DKK",
+                                                "DOP",
+                                                "DZD",
+                                                "EGP",
+                                                "ERN",
+                                                "ETB",
+                                                "EUR",
+                                                "FJD",
+                                                "FKP",
+                                                "GBP",
+                                                "GEL",
+                                                "GGP",
+                                                "GHS",
+                                                "GIP",
+                                                "GMD",
+                                                "GNF",
+                                                "GTQ",
+                                                "GYD",
+                                                "HKD",
+                                                "HNL",
+                                                "HRK",
+                                                "HTG",
+                                                "HUF",
+                                                "IDR",
+                                                "ILS",
+                                                "IMP",
+                                                "INR",
+                                                "IQD",
+                                                "IRR",
+                                                "IRT",
+                                                "ISK",
+                                                "JEP",
+                                                "JMD",
+                                                "JOD",
+                                                "JPY",
+                                                "KES",
+                                                "KGS",
+                                                "KHR",
+                                                "KMF",
+                                                "KPW",
+                                                "KRW",
+                                                "KWD",
+                                                "KYD",
+                                                "KZT",
+                                                "LAK",
+                                                "LBP",
+                                                "LKR",
+                                                "LRD",
+                                                "LSL",
+                                                "LYD",
+                                                "MAD",
+                                                "MDL",
+                                                "MGA",
+                                                "MKD",
+                                                "MMK",
+                                                "MNT",
+                                                "MOP",
+                                                "MRO",
+                                                "MUR",
+                                                "MVR",
+                                                "MWK",
+                                                "MXN",
+                                                "MYR",
+                                                "MZN",
+                                                "NAD",
+                                                "NGN",
+                                                "NIO",
+                                                "NOK",
+                                                "NPR",
+                                                "NZD",
+                                                "OMR",
+                                                "PAB",
+                                                "PEN",
+                                                "PGK",
+                                                "PHP",
+                                                "PKR",
+                                                "PLN",
+                                                "PRB",
+                                                "PYG",
+                                                "QAR",
+                                                "RON",
+                                                "RSD",
+                                                "RUB",
+                                                "RWF",
+                                                "SAR",
+                                                "SBD",
+                                                "SCR",
+                                                "SDG",
+                                                "SEK",
+                                                "SGD",
+                                                "SHP",
+                                                "SLL",
+                                                "SOS",
+                                                "SRD",
+                                                "SSP",
+                                                "STD",
+                                                "SYP",
+                                                "SZL",
+                                                "THB",
+                                                "TJS",
+                                                "TMT",
+                                                "TND",
+                                                "TOP",
+                                                "TRY",
+                                                "TTD",
+                                                "TWD",
+                                                "TZS",
+                                                "UAH",
+                                                "UGX",
+                                                "USD",
+                                                "UYU",
+                                                "UZS",
+                                                "VEF",
+                                                "VND",
+                                                "VUV",
+                                                "WST",
+                                                "XAF",
+                                                "XCD",
+                                                "XOF",
+                                                "XPF",
+                                                "YER",
+                                                "ZAR",
+                                                "ZMW"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "customerId",
+                                        "type": "number",
+                                        "label": "Customer ID"
+                                    },
+                                    {
+                                        "name": "customerNote",
+                                        "type": "text",
+                                        "label": "Customer note"
+                                    },
+                                    {
+                                        "name": "billing",
+                                        "spec": [
+                                            {
+                                                "name": "firstName",
+                                                "type": "text",
+                                                "label": "First name"
+                                            },
+                                            {
+                                                "name": "lastName",
+                                                "type": "text",
+                                                "label": "Last name"
+                                            },
+                                            {
+                                                "name": "company",
+                                                "type": "text",
+                                                "label": "Company"
+                                            },
+                                            {
+                                                "name": "address1",
+                                                "type": "text",
+                                                "label": "Address 1"
+                                            },
+                                            {
+                                                "name": "address2",
+                                                "type": "text",
+                                                "label": "Address 2"
+                                            },
+                                            {
+                                                "name": "city",
+                                                "type": "text",
+                                                "label": "City"
+                                            },
+                                            {
+                                                "name": "state",
+                                                "type": "text",
+                                                "label": "State"
+                                            },
+                                            {
+                                                "name": "postcode",
+                                                "type": "text",
+                                                "label": "Postcode"
+                                            },
+                                            {
+                                                "name": "country",
+                                                "type": "text",
+                                                "label": "Country"
+                                            },
+                                            {
+                                                "name": "email",
+                                                "type": "email",
+                                                "label": "Email"
+                                            },
+                                            {
+                                                "name": "phone",
+                                                "type": "text",
+                                                "label": "Phone"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Billing"
+                                    },
+                                    {
+                                        "name": "shipping",
+                                        "spec": [
+                                            {
+                                                "name": "firstName",
+                                                "type": "text",
+                                                "label": "First name"
+                                            },
+                                            {
+                                                "name": "lastName",
+                                                "type": "text",
+                                                "label": "Last name"
+                                            },
+                                            {
+                                                "name": "company",
+                                                "type": "text",
+                                                "label": "Company"
+                                            },
+                                            {
+                                                "name": "address1",
+                                                "type": "text",
+                                                "label": "Address 1"
+                                            },
+                                            {
+                                                "name": "address2",
+                                                "type": "text",
+                                                "label": "Address 2"
+                                            },
+                                            {
+                                                "name": "city",
+                                                "type": "text",
+                                                "label": "City"
+                                            },
+                                            {
+                                                "name": "state",
+                                                "type": "text",
+                                                "label": "State"
+                                            },
+                                            {
+                                                "name": "postcode",
+                                                "type": "text",
+                                                "label": "Postcode"
+                                            },
+                                            {
+                                                "name": "country",
+                                                "type": "text",
+                                                "label": "Country"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Shipping"
+                                    },
+                                    {
+                                        "name": "paymentMethod",
+                                        "type": "select",
+                                        "label": "Payment method"
+                                    },
+                                    {
+                                        "name": "paymentMethodTitle",
+                                        "type": "text",
+                                        "label": "Payment method title"
+                                    },
+                                    {
+                                        "name": "transactionId",
+                                        "type": "text",
+                                        "label": "Transaction ID"
+                                    },
+                                    {
+                                        "name": "lineItems",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "Order item ID"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            },
+                                            {
+                                                "name": "productId",
+                                                "type": "number",
+                                                "label": "Product ID"
+                                            },
+                                            {
+                                                "name": "variationId",
+                                                "type": "number",
+                                                "label": "Variation ID"
+                                            },
+                                            {
+                                                "name": "quantity",
+                                                "type": "number",
+                                                "label": "Quantity"
+                                            },
+                                            {
+                                                "name": "taxClass",
+                                                "type": "select",
+                                                "label": "Tax class"
+                                            },
+                                            {
+                                                "name": "subtotalTax",
+                                                "type": "text",
+                                                "label": "Subtotal tax"
+                                            },
+                                            {
+                                                "name": "total",
+                                                "type": "text",
+                                                "label": "Total"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Line items"
+                                    },
+                                    {
+                                        "name": "shippingLines",
+                                        "spec": [
+                                            {
+                                                "name": "methodId",
+                                                "type": "select",
+                                                "label": "Shipping method"
+                                            },
+                                            {
+                                                "name": "methodTitle",
+                                                "type": "text",
+                                                "label": "Shipping title"
+                                            },
+                                            {
+                                                "name": "total",
+                                                "type": "text",
+                                                "label": "Total"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Shipping lines"
+                                    },
+                                    {
+                                        "name": "feeLines",
+                                        "spec": [
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            },
+                                            {
+                                                "name": "taxClass",
+                                                "type": "select",
+                                                "label": "Tax class"
+                                            },
+                                            {
+                                                "name": "taxStatus",
+                                                "type": "select",
+                                                "label": "Tax status",
+                                                "options": [
+                                                    {
+                                                        "label": "Taxable",
+                                                        "value": "taxable"
+                                                    },
+                                                    {
+                                                        "label": "None",
+                                                        "value": "none"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "total",
+                                                "type": "text",
+                                                "label": "Total (after discounts)"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Fee lines"
+                                    },
+                                    {
+                                        "name": "couponLines",
+                                        "spec": [
+                                            {
+                                                "name": "code",
+                                                "type": "text",
+                                                "label": "Code"
+                                            },
+                                            {
+                                                "name": "discount",
+                                                "type": "text",
+                                                "label": "Discount"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Coupon lines"
+                                    },
+                                    {
+                                        "name": "setPaid",
+                                        "type": "boolean",
+                                        "label": "Set paid"
+                                    },
+                                    {
+                                        "name": "metaData",
+                                        "spec": [
+                                            {
+                                                "name": "key",
+                                                "type": "text",
+                                                "label": "Key",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value",
+                                                "required": true
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Meta data"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 8,
+                            "module": "woocommerce:UpdateOrder",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 155100
+                            },
+                            "filter": {
+                                "name": "Unpaid",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{1.ResponseCode}}",
+                                            "b": "200",
+                                            "o": "number:notequal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "id": "{{5.id}}",
+                                "status": "on-hold",
+                                "billing": {
+                                    "city": "{{5.billing.city}}",
+                                    "email": "{{5.billing.email}}",
+                                    "phone": "{{5.billing.phone}}",
+                                    "state": "{{5.billing.state}}",
+                                    "company": "{{5.billing.company}}",
+                                    "country": "{{5.billing.country}}",
+                                    "address1": "{{5.billing.address1}}",
+                                    "address2": "{{5.billing.address2}}",
+                                    "lastName": "{{5.billing.lastName}}",
+                                    "postcode": "{{5.billing.postcode}}",
+                                    "firstName": "{{5.billing.firstName}}"
+                                },
+                                "setPaid": true,
+                                "currency": "KES",
+                                "feeLines": [],
+                                "metaData": [],
+                                "parentId": "{{5.parentId}}",
+                                "shipping": {
+                                    "city": "{{5.shipping.city}}",
+                                    "state": "{{5.shipping.state}}",
+                                    "company": "{{5.shipping.company}}",
+                                    "country": "{{5.shipping.country}}",
+                                    "address1": "{{5.shipping.address1}}",
+                                    "address2": "{{5.shipping.address2}}",
+                                    "lastName": "{{5.shipping.lastName}}",
+                                    "postcode": "{{5.shipping.postcode}}",
+                                    "firstName": "{{5.shipping.firstName}}"
+                                },
+                                "lineItems": [],
+                                "customerId": "{{5.customerId}}",
+                                "couponLines": [],
+                                "customerNote": "{{5.customerNote}}",
+                                "paymentMethod": "faraja",
+                                "shippingLines": [],
+                                "transactionId": "Ref ID : {{1.Ref}}",
+                                "paymentMethodTitle": "{{5.paymentMethod}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1278,
+                                    "y": 195
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "status": {
+                                            "mode": "chose",
+                                            "label": "On hold"
+                                        },
+                                        "setPaid": {
+                                            "mode": "chose"
+                                        },
+                                        "currency": {
+                                            "mode": "chose",
+                                            "label": "KES"
+                                        },
+                                        "feeLines": {
+                                            "mode": "chose"
+                                        },
+                                        "metaData": {
+                                            "mode": "chose"
+                                        },
+                                        "lineItems": {
+                                            "mode": "chose"
+                                        },
+                                        "couponLines": {
+                                            "mode": "chose"
+                                        },
+                                        "paymentMethod": {
+                                            "mode": "chose",
+                                            "label": "Faraja Credit"
+                                        },
+                                        "shippingLines": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "woocommerce2"
+                                            },
+                                            "label": "Joolama.co.ke"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:woocommerce2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "id",
+                                        "type": "number",
+                                        "label": "Order ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "parentId",
+                                        "type": "number",
+                                        "label": "Parent order ID"
+                                    },
+                                    {
+                                        "name": "status",
+                                        "type": "select",
+                                        "label": "Status",
+                                        "validate": {
+                                            "enum": [
+                                                "pending",
+                                                "processing",
+                                                "on-hold",
+                                                "completed",
+                                                "cancelled",
+                                                "refunded",
+                                                "failed"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "currency",
+                                        "type": "select",
+                                        "label": "Currency",
+                                        "validate": {
+                                            "enum": [
+                                                "AED",
+                                                "AFN",
+                                                "ALL",
+                                                "AMD",
+                                                "ANG",
+                                                "AOA",
+                                                "ARS",
+                                                "AUD",
+                                                "AWG",
+                                                "AZN",
+                                                "BAM",
+                                                "BBD",
+                                                "BDT",
+                                                "BGN",
+                                                "BHD",
+                                                "BIF",
+                                                "BMD",
+                                                "BND",
+                                                "BOB",
+                                                "BRL",
+                                                "BSD",
+                                                "BTC",
+                                                "BTN",
+                                                "BWP",
+                                                "BYR",
+                                                "BYN",
+                                                "BZD",
+                                                "CAD",
+                                                "CDF",
+                                                "CHF",
+                                                "CLP",
+                                                "CNY",
+                                                "COP",
+                                                "CRC",
+                                                "CUC",
+                                                "CUP",
+                                                "CVE",
+                                                "CZK",
+                                                "DJF",
+                                                "DKK",
+                                                "DOP",
+                                                "DZD",
+                                                "EGP",
+                                                "ERN",
+                                                "ETB",
+                                                "EUR",
+                                                "FJD",
+                                                "FKP",
+                                                "GBP",
+                                                "GEL",
+                                                "GGP",
+                                                "GHS",
+                                                "GIP",
+                                                "GMD",
+                                                "GNF",
+                                                "GTQ",
+                                                "GYD",
+                                                "HKD",
+                                                "HNL",
+                                                "HRK",
+                                                "HTG",
+                                                "HUF",
+                                                "IDR",
+                                                "ILS",
+                                                "IMP",
+                                                "INR",
+                                                "IQD",
+                                                "IRR",
+                                                "IRT",
+                                                "ISK",
+                                                "JEP",
+                                                "JMD",
+                                                "JOD",
+                                                "JPY",
+                                                "KES",
+                                                "KGS",
+                                                "KHR",
+                                                "KMF",
+                                                "KPW",
+                                                "KRW",
+                                                "KWD",
+                                                "KYD",
+                                                "KZT",
+                                                "LAK",
+                                                "LBP",
+                                                "LKR",
+                                                "LRD",
+                                                "LSL",
+                                                "LYD",
+                                                "MAD",
+                                                "MDL",
+                                                "MGA",
+                                                "MKD",
+                                                "MMK",
+                                                "MNT",
+                                                "MOP",
+                                                "MRO",
+                                                "MUR",
+                                                "MVR",
+                                                "MWK",
+                                                "MXN",
+                                                "MYR",
+                                                "MZN",
+                                                "NAD",
+                                                "NGN",
+                                                "NIO",
+                                                "NOK",
+                                                "NPR",
+                                                "NZD",
+                                                "OMR",
+                                                "PAB",
+                                                "PEN",
+                                                "PGK",
+                                                "PHP",
+                                                "PKR",
+                                                "PLN",
+                                                "PRB",
+                                                "PYG",
+                                                "QAR",
+                                                "RON",
+                                                "RSD",
+                                                "RUB",
+                                                "RWF",
+                                                "SAR",
+                                                "SBD",
+                                                "SCR",
+                                                "SDG",
+                                                "SEK",
+                                                "SGD",
+                                                "SHP",
+                                                "SLL",
+                                                "SOS",
+                                                "SRD",
+                                                "SSP",
+                                                "STD",
+                                                "SYP",
+                                                "SZL",
+                                                "THB",
+                                                "TJS",
+                                                "TMT",
+                                                "TND",
+                                                "TOP",
+                                                "TRY",
+                                                "TTD",
+                                                "TWD",
+                                                "TZS",
+                                                "UAH",
+                                                "UGX",
+                                                "USD",
+                                                "UYU",
+                                                "UZS",
+                                                "VEF",
+                                                "VND",
+                                                "VUV",
+                                                "WST",
+                                                "XAF",
+                                                "XCD",
+                                                "XOF",
+                                                "XPF",
+                                                "YER",
+                                                "ZAR",
+                                                "ZMW"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "customerId",
+                                        "type": "number",
+                                        "label": "Customer ID"
+                                    },
+                                    {
+                                        "name": "customerNote",
+                                        "type": "text",
+                                        "label": "Customer note"
+                                    },
+                                    {
+                                        "name": "billing",
+                                        "spec": [
+                                            {
+                                                "name": "firstName",
+                                                "type": "text",
+                                                "label": "First name"
+                                            },
+                                            {
+                                                "name": "lastName",
+                                                "type": "text",
+                                                "label": "Last name"
+                                            },
+                                            {
+                                                "name": "company",
+                                                "type": "text",
+                                                "label": "Company"
+                                            },
+                                            {
+                                                "name": "address1",
+                                                "type": "text",
+                                                "label": "Address 1"
+                                            },
+                                            {
+                                                "name": "address2",
+                                                "type": "text",
+                                                "label": "Address 2"
+                                            },
+                                            {
+                                                "name": "city",
+                                                "type": "text",
+                                                "label": "City"
+                                            },
+                                            {
+                                                "name": "state",
+                                                "type": "text",
+                                                "label": "State"
+                                            },
+                                            {
+                                                "name": "postcode",
+                                                "type": "text",
+                                                "label": "Postcode"
+                                            },
+                                            {
+                                                "name": "country",
+                                                "type": "text",
+                                                "label": "Country"
+                                            },
+                                            {
+                                                "name": "email",
+                                                "type": "email",
+                                                "label": "Email"
+                                            },
+                                            {
+                                                "name": "phone",
+                                                "type": "text",
+                                                "label": "Phone"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Billing"
+                                    },
+                                    {
+                                        "name": "shipping",
+                                        "spec": [
+                                            {
+                                                "name": "firstName",
+                                                "type": "text",
+                                                "label": "First name"
+                                            },
+                                            {
+                                                "name": "lastName",
+                                                "type": "text",
+                                                "label": "Last name"
+                                            },
+                                            {
+                                                "name": "company",
+                                                "type": "text",
+                                                "label": "Company"
+                                            },
+                                            {
+                                                "name": "address1",
+                                                "type": "text",
+                                                "label": "Address 1"
+                                            },
+                                            {
+                                                "name": "address2",
+                                                "type": "text",
+                                                "label": "Address 2"
+                                            },
+                                            {
+                                                "name": "city",
+                                                "type": "text",
+                                                "label": "City"
+                                            },
+                                            {
+                                                "name": "state",
+                                                "type": "text",
+                                                "label": "State"
+                                            },
+                                            {
+                                                "name": "postcode",
+                                                "type": "text",
+                                                "label": "Postcode"
+                                            },
+                                            {
+                                                "name": "country",
+                                                "type": "text",
+                                                "label": "Country"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Shipping"
+                                    },
+                                    {
+                                        "name": "paymentMethod",
+                                        "type": "select",
+                                        "label": "Payment method"
+                                    },
+                                    {
+                                        "name": "paymentMethodTitle",
+                                        "type": "text",
+                                        "label": "Payment method title"
+                                    },
+                                    {
+                                        "name": "transactionId",
+                                        "type": "text",
+                                        "label": "Transaction ID"
+                                    },
+                                    {
+                                        "name": "lineItems",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "Order item ID"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            },
+                                            {
+                                                "name": "productId",
+                                                "type": "number",
+                                                "label": "Product ID"
+                                            },
+                                            {
+                                                "name": "variationId",
+                                                "type": "number",
+                                                "label": "Variation ID"
+                                            },
+                                            {
+                                                "name": "quantity",
+                                                "type": "number",
+                                                "label": "Quantity"
+                                            },
+                                            {
+                                                "name": "taxClass",
+                                                "type": "select",
+                                                "label": "Tax class"
+                                            },
+                                            {
+                                                "name": "subtotalTax",
+                                                "type": "text",
+                                                "label": "Subtotal tax"
+                                            },
+                                            {
+                                                "name": "total",
+                                                "type": "text",
+                                                "label": "Total"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Line items"
+                                    },
+                                    {
+                                        "name": "shippingLines",
+                                        "spec": [
+                                            {
+                                                "name": "methodId",
+                                                "type": "select",
+                                                "label": "Shipping method"
+                                            },
+                                            {
+                                                "name": "methodTitle",
+                                                "type": "text",
+                                                "label": "Shipping title"
+                                            },
+                                            {
+                                                "name": "total",
+                                                "type": "text",
+                                                "label": "Total"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Shipping lines"
+                                    },
+                                    {
+                                        "name": "feeLines",
+                                        "spec": [
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Name"
+                                            },
+                                            {
+                                                "name": "taxClass",
+                                                "type": "select",
+                                                "label": "Tax class"
+                                            },
+                                            {
+                                                "name": "taxStatus",
+                                                "type": "select",
+                                                "label": "Tax status",
+                                                "options": [
+                                                    {
+                                                        "label": "Taxable",
+                                                        "value": "taxable"
+                                                    },
+                                                    {
+                                                        "label": "None",
+                                                        "value": "none"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "total",
+                                                "type": "text",
+                                                "label": "Total (after discounts)"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Fee lines"
+                                    },
+                                    {
+                                        "name": "couponLines",
+                                        "spec": [
+                                            {
+                                                "name": "code",
+                                                "type": "text",
+                                                "label": "Code"
+                                            },
+                                            {
+                                                "name": "discount",
+                                                "type": "text",
+                                                "label": "Discount"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Coupon lines"
+                                    },
+                                    {
+                                        "name": "setPaid",
+                                        "type": "boolean",
+                                        "label": "Set paid"
+                                    },
+                                    {
+                                        "name": "metaData",
+                                        "spec": [
+                                            {
+                                                "name": "key",
+                                                "type": "text",
+                                                "label": "Key",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value",
+                                                "required": true
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Meta data"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu1.make.com"
+    }
+}
